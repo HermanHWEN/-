@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跳跳棋</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div style="text-align:center">
+        <button id="btn">新游戏</button>
+        <button id="btnRecommend1">推荐路1</button>
+        <button id="btnRecommend2">推荐路2</button>
+        <button id="btnRecommend3">推荐路3</button>
+        <button id="btnRecommend4">推荐路4</button>
+        <button id="btnRecommend5">推荐路5</button>
+        <button id="btnRecommend6">推荐路6</button>
+    </div>
+    <div style="width: 0px;float: left;">
+        <button id="btnchessWhite" class="chessColor">白</button>
+        <button id="btnChessBlue" class="chessColor">蓝</button>
+        <button id="btnChessRed" class="chessColor">红</button>
+        <button id="btnChessCyn" class="chessColor">青</button>
+        <button id="btnchessBlack" class="chessColor">黑</button>
+        <button id="btnchessYellow" class="chessColor">黄</button>
+    </div>
+    
+    <div style="float: none;">
+        <canvas id="chessboard" width="800" height="800"></canvas>
+    </div>
+    
+    <script src="js/variables.js"></script>
+    <script src="js/classes.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/draw.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/behave.js"></script>
+    <script src="js/logic.js"></script>
+</body>
+</html>
