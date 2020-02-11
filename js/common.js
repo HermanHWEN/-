@@ -168,12 +168,16 @@ function randomColor(){
 function tailChess(chess){
     var lastChess=chess;
     var count=0;
+    var countOfOtherZone=0;
     while(lastChess.next!=null){
         lastChess=lastChess.next;
         count++;
+        if(chess.zoneFlag!=lastChess.zoneFlag)
+            countOfOtherZone++;
     }
     lastChess.zoneFlag=chess.zoneFlag;
     chess.jumpPointCount=count;
+    chess.jumpPointCountOfOtherZone=countOfOtherZone;
     return lastChess;
 }
 

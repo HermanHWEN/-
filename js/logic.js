@@ -250,6 +250,7 @@ function jump(chess){
     //遍历所有可能的路径，找出最小的得分
     jumpPoints.forEach(jumpPoint => {
         var toPoint = Chess.new(2*jumpPoint.x-chess.x,2*jumpPoint.y-chess.y);
+        toPoint.zoneFlag=zoneFlagOf(toPoint.x,toPoint.y);
 
         //如果允许跳过去且这个目标点没有跳过
         if(allowToJump(chess,toPoint.x,toPoint.y)){
@@ -379,13 +380,13 @@ function predict(zone){
             }
         })
 
-        var mostJumpoints=0;
+        var mostJumpointsOfOtherZone=0;
         chessesZone.chesses.forEach(chess=>{
 
             //这次跳跃的最终的棋子
             var lastChess=tailChess(chess);
-            if(chess.jumpPointCount>mostJumpoints){
-                mostJumpoints=chess.jumpPointCount;
+            if(chess.jumpPointCountOfOtherZone>mostJumpointsOfOtherZone){
+                mostJumpointsOfOtherZone=chess.jumpPointCountOfOtherZone;
             }
         });
 
@@ -397,8 +398,14 @@ function predict(zone){
 
             var drawed=false;
 
+            //每个棋子都画出最长的路线
+            if(chess!=lastChess && chess.jumpPointCount>1){
+                drawed=true;
+                drawTrack(chess,count,"white","blue");
+            }
+
             //最最多棋子
-            if(chess.jumpPointCount==mostJumpoints && chess!=lastChess && mostJumpoints!==1){
+            if(chess.jumpPointCount==mostJumpointsOfOtherZone && chess!=lastChess && mostJumpointsOfOtherZone!==1){
                 drawed=true;
                 drawTrack(chess,count,"white","yellow");
             }
